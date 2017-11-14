@@ -55,7 +55,7 @@ public class Graph  {
 
         listdarc = new LinkedList<>();
     }
-    public void supnode (Node nodexp){
+    public void suprimNode(Node nodexp){
         for(Arc arc : this.getListdarc()){
             if(nodexp.egalnode(arc.getNoeudefin()) || nodexp.egalnode(arc.getNoeudorigin())) {
                 listdarc.remove(arc);
@@ -82,7 +82,7 @@ public class Graph  {
         //return  add;
     }
 
-    public Node existnode (Node nodexp){
+    public Node Nodeproche(Node nodexp){
         boolean col = false;
         Node nodetemp = new Node();
         for(Node node : this.getListdenoeud()){
@@ -99,11 +99,11 @@ public class Graph  {
         return nodetemp;
     }
 
-    public boolean existe (int x, int y){
+    public boolean nodeproch (Node nodexp){
         boolean existe = false;
         for(Node node : this.getListdenoeud()){
-            if( x >= (node.getX() - node.getRay()) && x <= (node.getX() + node.getRay()) &&
-                    y >= (node.getY() + node.getRay()) && y <= (node.getY() + node.getRay()) ){
+            if( nodexp.getX() >= (node.getX() - (node.getRay()+nodexp.getRay())) && nodexp.getX() <= (node.getX() + node.getRay()) &&
+                    nodexp.getY() >= (node.getY() + (node.getRay()+nodexp.getRay())) && node.getY() <= (node.getY() + (node.getRay()+nodexp.getRay()))){
                 existe = true;
                 Log.e("existe","il existe un noeud " + existe);
             }

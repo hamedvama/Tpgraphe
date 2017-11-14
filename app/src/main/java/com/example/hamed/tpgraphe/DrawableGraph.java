@@ -70,6 +70,8 @@ public class DrawableGraph extends Drawable {
 
             edgePath.quadTo(mx, my, graph.getListdarc().get(i).getNoeudefin().getX(), graph.getListdarc().get(i).getNoeudefin().getY());
             canvas.drawPath(edgePath, graph.getListdarc().get(i).getPaint());
+
+            canvas.drawText("arc",mx, my, paint);
         }
 
     }
